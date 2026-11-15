@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 43 55% 96%;
+    --foreground: 193 45% 14%;
+    --card: 44 70% 98%;
+    --card-foreground: 193 45% 14%;
+    --popover: 44 70% 98%;
+    --popover-foreground: 193 45% 14%;
+    --primary: 179 52% 32%;
+    --primary-foreground: 43 60% 97%;
+    --secondary: 43 40% 90%;
+    --secondary-foreground: 193 40% 18%;
+    --muted: 43 35% 91%;
+    --muted-foreground: 193 20% 38%;
+    --accent: 88 45% 36%;
+    --accent-foreground: 43 60% 97%;
+    --destructive: 6 68% 52%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 43 30% 84%;
+    --input: 43 30% 84%;
+    --ring: 179 52% 32%;
+    --chart-1: 179 55% 42%;
+    --chart-2: 88 45% 48%;
+    --chart-3: 38 87% 55%;
+    --chart-4: 6 70% 58%;
+    --chart-5: 193 45% 30%;
+    --radius: 0.75rem;
+    --font-heading: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --sidebar-background: 43 45% 94%;
+    --sidebar-foreground: 193 40% 16%;
+    --sidebar-primary: 179 52% 32%;
+    --sidebar-primary-foreground: 43 60% 97%;
+    --sidebar-accent: 43 35% 89%;
+    --sidebar-accent-foreground: 193 40% 16%;
+    --sidebar-border: 43 30% 84%;
+    --sidebar-ring: 179 52% 32%;
+  }
+
+  .dark {
+    --background: 193 45% 12%;
+    --foreground: 43 50% 93%;
+    --card: 193 42% 16%;
+    --card-foreground: 43 50% 93%;
+    --popover: 193 42% 16%;
+    --popover-foreground: 43 50% 93%;
+    --primary: 178 55% 48%;
+    --primary-foreground: 193 45% 10%;
+    --secondary: 193 35% 21%;
+    --secondary-foreground: 43 50% 93%;
+    --muted: 193 32% 20%;
+    --muted-foreground: 43 25% 68%;
+    --accent: 88 42% 52%;
+    --accent-foreground: 193 45% 10%;
+    --destructive: 6 68% 58%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 193 30% 24%;
+    --input: 193 30% 24%;
+    --ring: 178 55% 48%;
+    --chart-1: 178 55% 48%;
+    --chart-2: 88 45% 55%;
+    --chart-3: 38 87% 58%;
+    --chart-4: 6 70% 60%;
+    --chart-5: 43 60% 70%;
+    --sidebar-background: 193 45% 14%;
+    --sidebar-foreground: 43 50% 90%;
+    --sidebar-primary: 178 55% 48%;
+    --sidebar-primary-foreground: 193 45% 10%;
+    --sidebar-accent: 193 32% 20%;
+    --sidebar-accent-foreground: 43 50% 93%;
+    --sidebar-border: 193 30% 24%;
+    --sidebar-ring: 178 55% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    background-image:
+      radial-gradient(at 12% 8%, hsl(var(--primary) / 0.06) 0px, transparent 50%),
+      radial-gradient(at 88% 92%, hsl(var(--accent) / 0.05) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass {
+    background-color: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+  .glass-strong {
+    background-color: hsl(var(--card) / 0.82);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid hsl(var(--border) / 0.6);
+  }
+}
+
+/* High-contrast accessibility mode */
+.contrast {
+  --border: 193 45% 28%;
+  --input: 193 45% 28%;
+  --muted-foreground: 193 40% 20%;
+  --primary: 179 72% 26%;
+  --ring: 179 72% 26%;
+}
+.dark.contrast {
+  --border: 178 55% 62%;
+  --input: 178 55% 62%;
+  --muted-foreground: 43 60% 92%;
+  --foreground: 43 80% 98%;
+  --primary: 178 80% 64%;
+  --primary-foreground: 193 60% 8%;
+  --accent: 88 60% 62%;
+}
+
+/* Accessibility: legibility-first typeface */
+.dyslexia {
+  --font-body: 'Atkinson Hyperlegible', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Atkinson Hyperlegible', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Atkinson Hyperlegible', ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.01em;
+}
+.dyslexia body {
+  line-height: 1.75;
+}
+
+/* Accessibility: reduced motion */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Guided tour highlight */
+.tour-focus {
+  outline: 3px solid hsl(var(--primary));
+  outline-offset: 5px;
+  border-radius: 1.1rem;
+  transition: outline-color 0.3s ease;
+}
+
+input[type='range'] {
+  height: 1.25rem;
+}
+input[type='range']:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 3px;
+  border-radius: 9999px;
+}
+
+/* MapLibre controls */
+.maplibregl-ctrl-group {
+  background: hsl(var(--card) / 0.85);
+  border: 1px solid hsl(var(--border) / 0.6);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+.maplibregl-ctrl-group button + button { border-top-color: hsl(var(--border) / 0.6); }
+.maplibregl-ctrl-attrib { background: hsl(var(--card) / 0.72); font-size: 10px; }
+.maplibregl-ctrl-attrib a { color: hsl(var(--primary)); }
+.dark .maplibregl-ctrl button .maplibregl-ctrl-icon { filter: invert(1) hue-rotate(180deg); }
+.maplibregl-canvas { outline: none; }
+
+/* Leaflet overrides */
+.leaflet-container {
+  background: hsl(var(--muted));
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+}
+.leaflet-container a { color: hsl(var(--primary)); }
+.geo-pin {
+  display: flex; align-items: center; justify-content: center;
+}
+.geo-pin-inner {
+  width: 28px; height: 28px; border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: linear-gradient(135deg, hsl(178 55% 48%), hsl(88 45% 48%));
+  border: 2px solid hsl(43 55% 94%);
+  box-shadow: 0 4px 12px hsl(193 45% 8% / 0.5);
+  display: flex; align-items: center; justify-content: center;
+}
+.geo-pin-inner::after {
+  content: ''; width: 8px; height: 8px; border-radius: 50%;
+  background: white; transform: rotate(45deg);
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.5); }
